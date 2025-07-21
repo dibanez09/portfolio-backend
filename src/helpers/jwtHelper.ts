@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { IUserData } from '../types/types';
+import { IUserData } from '../const/types';
 
 const jwtSecret = process.env.SECRET_KEY || '';
 const tokenExpiry = process.env.TOKEN_EXPIRY || '';

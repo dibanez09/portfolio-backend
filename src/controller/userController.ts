@@ -1,8 +1,13 @@
 import { createToken, decodeToken } from '../helpers/jwtHelper';
 import JwtPayload from 'jsonwebtoken';
 import mongoose from 'mongoose';
-import User from '../models/userModel';
+
+//types
 import { NextFunction, Request, Response } from 'express';
+
+// models
+import { User } from '../models';
+
 export const addUser = async (
   req: Request,
   res: Response,
@@ -28,10 +33,15 @@ export const getAllUsers = async (
   next: NextFunction,
 ) => {
   try {
-    const user = await User.find({}).sort({ createdAt: -1 })
+    // const users = await User.find({}).sort({ createdAt: -1 })
 
-    res.status(200).json(user)
+    const users = await User.find().populate('contactId').populate('profileId').populate('addressId')
+
+    res.status(200).json({
+      data: users
+    })
   } catch (error: any) {
+    console.log(error)
     next({
       message: 'Internal server error',
       details: error?.message,
