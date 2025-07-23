@@ -8,6 +8,28 @@ import { NextFunction, Request, Response } from 'express';
 // models
 import { User } from '../models';
 
+export const getUserInfo = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const data = await User.findOne({}).populate('contactId').populate('profileId').populate('addressId')
+
+    res.status(200).json({
+      data
+    })
+  } catch (error: any) {
+    console.log(error)
+    next({
+      message: 'Internal server error',
+      details: error?.message,
+      code: 500,
+    });
+  }
+};
+
+// --------------------- Future features ---------------------
 export const addUser = async (
   req: Request,
   res: Response,
