@@ -2,7 +2,7 @@ import { genSaltSync, hashSync } from "bcryptjs";
 import { readFile, writeFile } from 'fs';
 
 // models
-import { User, Profile, Address, Contact } from "../models";
+import { User, Profile, Address, Contact, SocialLink } from "../models";
 
 export const seeder = async () => {
   try {
@@ -69,9 +69,18 @@ export const initializeData = async () => {
         userId: user.id,
       });
 
+      console.log("updating social links. . .");
+
+      const socialLink = await SocialLink.create({
+        facebook: 'https://www.facebook.com/dan2498',
+        github: 'https://github.com/dibanez09',
+        linkedin: 'https://www.linkedin.com/in/dan-iba%C3%B1ez',
+      });
+
       user.addressId.push(address?.id);
       user.contactId = contact.id;
       user.profileId = profile.id;
+      user.socialLinkId = socialLink.id;
       await user.save();
 
       console.log("all user data initialized successfully");

@@ -14,7 +14,7 @@ export const getUserInfo = async (
   next: NextFunction,
 ) => {
   try {
-    const data = await User.findOne({}).populate('contactId').populate('profileId').populate('addressId')
+    const data = await User.findOne({}).populate('contactId').populate('profileId').populate('addressId').populate('socialLinkId')
 
     res.status(200).json({
       data
