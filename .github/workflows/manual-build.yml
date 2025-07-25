@@ -1,8 +1,8 @@
 name: Manual Build Image
 on:
   workflow_dispatch:
-  # push:
-  #   branches: ["feature/**"]
+  push:
+    branches: ["feature/**"]
 
 jobs:
   build:
