@@ -5,8 +5,5 @@ on:
     branches: ["feature/**"]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: ./.github/workflows/job-build.yml
+  call-workflow:
+    uses: ./.github/workflows/job-build.yml
