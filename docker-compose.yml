@@ -1,0 +1,26 @@
+services:
+  backend:
+    container_name: backend
+    image: ${IMAGE_TAG}
+    restart: unless-stopped
+    ports:
+      - 81:81
+    logging:
+      options:
+        max-size: 1g
+    environment:
+      PORT: 81
+      SECRET_KEY: ${SECRET_KEY}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      DB_SERVER: ${DB_SERVER}
+      DB_PORT: ${DB_PORT}
+    networks:
+      - portfolio-network
+    volumes:
+      - "./seed.txt:/usr/src/app/build/seed.txt:consistent"
+
+networks:
+  portfolio-network:
+    external: true
