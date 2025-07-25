@@ -1,12 +1,10 @@
 name: Manual Build Image
 on:
   workflow_dispatch:
-  push:
-    branches: ["feature/**"]
 
 jobs:
-  call-workflow:
-    uses: ./.github/workflows/job-build.yml
+  build-and-push:
+    uses: ./.github/workflows/jobs/build.yml
     with:
       config-path: .
     secrets:

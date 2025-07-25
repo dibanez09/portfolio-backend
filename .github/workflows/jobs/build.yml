@@ -37,4 +37,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: "${{ secrets.DOCKERHUB_USERNAME }}/portfolio:backend-${{ steps.vars.outputs.date }}-${{ steps.vars.outputs.sha_short }}"
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/portfolio:backend-${{ steps.vars.outputs.date }}-${{ steps.vars.outputs.sha_short }}
