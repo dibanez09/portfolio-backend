@@ -1,11 +1,11 @@
-name: Build Image
+name: Build and Push Image
 
 on:
   pull_request:
     branches: ["develop"]
 
 jobs:
-  call-workflow:
+  build-and-push:
     uses: ./.github/workflows/jobs-build.yml
     with:
       config-path: .
