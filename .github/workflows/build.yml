@@ -6,7 +6,7 @@ on:
 
 jobs:
   call-workflow:
-    uses: ./.github/workflows/jobs/build.yml
+    uses: ./.github/workflows/jobs-build.yml
     with:
       config-path: .
     secrets:

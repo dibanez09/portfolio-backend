@@ -4,7 +4,7 @@ on:
 
 jobs:
   build-and-push:
-    uses: ./.github/workflows/jobs/build.yml
+    uses: ./.github/workflows/jobs-build.yml
     with:
       config-path: .
     secrets:
