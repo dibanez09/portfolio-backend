@@ -16,10 +16,10 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      - name: Set outputs
-      - uses: actions/checkout@v4
+      - name: Set var outputs
+        uses: actions/checkout@v4
         id: vars
-        run: |
+      - run: |
           echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
           echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
           echo ${{ github.workspace }}
