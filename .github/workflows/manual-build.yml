@@ -7,3 +7,8 @@ on:
 jobs:
   call-workflow:
     uses: ./.github/workflows/job-build.yml
+    with:
+      config-path: .
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
