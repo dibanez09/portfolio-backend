@@ -20,6 +20,7 @@ services:
       - portfolio-network
     volumes:
       - "./seed.txt:/usr/src/app/build/seed.txt:consistent"
+      - "./src/public:/usr/src/app/build/public:consistent"
 
 networks:
   portfolio-network:
