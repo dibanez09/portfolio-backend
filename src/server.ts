@@ -7,7 +7,7 @@ import router from './routes/index';
 
 dotenv.config();
 import { seeder } from './seeder/seed';
-
+import path from 'path';
 // express app
 const app = express()
 app.use(cors());
@@ -18,6 +18,7 @@ app.use((req, res, next) => {
 })
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/v1', router);
 
