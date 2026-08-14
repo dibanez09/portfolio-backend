@@ -27,4 +27,8 @@ export const userSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'SocialLink'
     },
+    techStackId: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'TechStack'
+    }],
 }, { timestamps: true })

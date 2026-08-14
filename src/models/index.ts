@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { userSchema } from "./useSchema";
+import { userSchema } from "./userSchema";
 import { profileSchema } from "./profileSchema";
 import { contactSchema } from "./contactSchema";
 import { addressSchema } from "./addressSchema";
